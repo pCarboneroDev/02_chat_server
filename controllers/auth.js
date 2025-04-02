@@ -50,6 +50,7 @@ const crearUsuario = async (req, res = response) => {
 // ok: true msg: login
 
 const login = async (req, res = response) => {
+    //console.log('Petición de login recibida:', req.body);
 
     const {email, password} = req.body;
 
@@ -92,11 +93,6 @@ const login = async (req, res = response) => {
             msg:'hable con el admin'
         })
     }
-
-    return res.json({
-        ok:true,
-        msg:'login'
-    })
 }
 
 
@@ -114,7 +110,7 @@ const renewToken = async(req, res = response) => {
 
         res.json({
             ok: true,
-            usuarioDB,
+            usuario: usuarioDB,
             token
         });
     } catch (error) {
